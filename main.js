@@ -27,6 +27,7 @@ if (storageAvailable("localStorage")) {
 const state = {
   checked: null,
   warned: false,
+  newChildToRender: false,
 };
 
 const renderLibrary = () => {
@@ -38,12 +39,18 @@ const renderLibrary = () => {
   );
 
   for (const [index, book] of myLibrary.entries()) {
+    let fadein = false;
+    if (index === myLibrary.length - 1 && state.newChildToRender) {
+      fadein = true;
+      state.newChildToRender = false;
+    }
     const containerCard = addElement(
       `containerCard${index}`,
       "div",
       "",
       document.querySelector(".main-library"),
-      ["container-card"]
+      ["container-card"],
+      fadein
     );
 
     // Handle the top buttons
@@ -251,9 +258,8 @@ button.addEventListener("click", () => {
     );
     localStorage.setItem("myLibrary", libraryString);
   }
+  state.newChildToRender = true;
   renderLibrary();
-
-  console.log(myLibrary);
 });
 
 // Helper function for adding elements to the DOM
@@ -262,13 +268,19 @@ function addElement(
   tag = "div",
   content = "",
   parent = document.body,
-  classes
+  classes,
+  fadein = false
 ) {
   const newElement = document.createElement(tag);
   newElement.id = id;
+
   // add classes if present
   if (classes) {
     newElement.classList.add(...classes);
+  }
+
+  if (fadein) {
+    newElement.style.opacity = 0;
   }
 
   // append text to the element
@@ -278,10 +290,21 @@ function addElement(
   // append element to the parent
   parent.appendChild(newElement);
 
+  if (fadein) {
+    let opacity = 0;
+    function fade() {
+      opacity += 0.05;
+      if (opacity >= 1) {
+        newElement.style.opacity = 1;
+      }
+      newElement.style.opacity = opacity;
+      requestAnimationFrame(fade);
+    }
+    fade();
+  }
+
   return newElement;
 }
-
-function updateStorage() {}
 
 // Helper function for checking if local storage is available
 // taken from MDN
