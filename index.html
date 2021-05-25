@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Connosieur's Corner</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Monoton&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ewert&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header id="library-header" class="library-header">
+      <h1 class="library-form__text library-form__text--fancy">
+        Connosieur's Corner
+      </h1>
+      <p class="library-form__text">An e-library for the rest of us</p>
+      <form class="library-form" action="">
+        <div class="library-form__input-container">
+          <label class="library-form__text" for="title">Book</label>
+          <input
+            type="text"
+            class="library-form__entry"
+            name="title"
+            id="title"
+          />
+          <label class="library-form__text" for="author">Author</label>
+          <input
+            class="library-form__entry"
+            type="text"
+            name="author"
+            id="author"
+          />
+          <label class="library-form__text" for="pages">Pages</label>
+          <input
+            class="library-form__entry"
+            type="text"
+            name="pages"
+            id="pages"
+          />
+        </div>
+        <div class="library-form__checkbox-container">
+          <img
+            class="book-icon"
+            src="Closed_Book_Icon.svg"
+            width="100"
+            height="100"
+          />
+          <div>
+            <p class="library-form__text library-form__text--mid-text">
+              Already read it?
+            </p>
+            <div>
+              <label class="library-form__text" for="yes">Yes</label>
+              <input
+                class="library-form__checkbox"
+                type="checkbox"
+                name="yes"
+                id="yes"
+              />
+              <label class="library-form__text" for="no">No</label>
+              <input
+                class="library-form__checkbox"
+                type="checkbox"
+                name="no"
+                id="no"
+              />
+            </div>
+          </div>
+          <button
+            type="button"
+            class="library-form__button library-form__text"
+            id="submit"
+          >
+            SUBMIT
+          </button>
+        </div>
+      </form>
+    </header>
+    <main id="main-content" class="main-content">
+      <section class="main-library"></section>
+    </main>
+    <footer></footer>
+    <script src="main.js"></script>
+  </body>
+</html>
