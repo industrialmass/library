@@ -62,7 +62,7 @@ const renderLibrary = () => {
       buttonContainer
     );
 
-    deleteButton.setAttribute("src", "trash-solid.svg");
+    deleteButton.setAttribute("src", "./svg/trash-solid.svg");
     deleteButton.setAttribute("width", "15px");
     deleteButton.setAttribute("height", "15px");
 
@@ -88,7 +88,7 @@ const renderLibrary = () => {
     );
 
     const bookIcon = book.haveRead ? "book-open-solid.svg" : "book-solid.svg";
-    readToggle.setAttribute("src", bookIcon);
+    readToggle.setAttribute("src", `./svg/${bookIcon}`);
     readToggle.setAttribute("width", "15px");
     readToggle.setAttribute("height", "15px");
 
